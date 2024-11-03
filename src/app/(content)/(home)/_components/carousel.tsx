@@ -3,9 +3,7 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { PropsWithChildren } from "react";
 
-interface Props extends PropsWithChildren {}
-
-export default function Carousel({ children }: Props) {
+export default function Carousel({ children }: PropsWithChildren) {
     const [emblaRef] = useEmblaCarousel();
     return (
         <div ref={emblaRef} className="overflow-hidden w-full cursor-grab">

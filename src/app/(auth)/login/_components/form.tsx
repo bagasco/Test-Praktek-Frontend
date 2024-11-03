@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import Form from "../../_components/form";
 import Input from "@/components/input";
 import Button from "@/components/button";
+import PasswordInput from "@/components/password-input";
 
 export default function LoginForm() {
     const { register: registerField, handleSubmit, formState: { errors } } = useForm<LoginSchema>({
@@ -53,9 +54,8 @@ export default function LoginForm() {
                             {...registerField("email")} 
                             error={errors.email?.message} 
                         />
-                        <Input 
+                        <PasswordInput 
                             icon="lock-closed" 
-                            type="password" 
                             placeholder="Masukkan password anda" 
                             {...registerField("password")} 
                             error={errors.password?.message} 

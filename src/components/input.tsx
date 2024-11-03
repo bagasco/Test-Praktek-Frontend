@@ -3,36 +3,16 @@
 import { cn } from "@/libs/utils";
 import Icon, { IconName } from "./icon";
 import Button from "./button";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     icon: IconName,
-    error?: string
-}
-
-export default function Input({ type, ...props }: Props) {
-    if (type === 'password') {
-        const [showPW,setShowPW] = useState(false);
-        return <Component type={type} showPW={showPW} setShowPW={setShowPW} {...props}/>
-    }
-
-    return <Component type={type} {...props}/>
-}
-
-interface ComponentProps extends Props{
+    error?: string,
     showPW?: boolean,
     setShowPW?: Dispatch<SetStateAction<boolean>>
 }
 
-function Component({ 
-    className, 
-    icon, 
-    type, 
-    error, 
-    showPW = false, 
-    setShowPW, 
-    ...props 
-}: ComponentProps) {
+export default function Input({ type, icon, error, className, showPW, setShowPW, ...props }: Props) {
     return (
         <div className="relative pb-6">
             <div className="relative">

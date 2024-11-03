@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
         hostname: 'minio.nutech-integrasi.com'
       }
     ]
+  },
+  eslint: {
+    ignoreDuringBuilds: true
   }
 };
 

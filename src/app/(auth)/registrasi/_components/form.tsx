@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { register } from "@/libs/actions/auth";
 import { useState, useTransition } from "react";
 import { Message } from "@/components/notif";
+import PasswordInput from "@/components/password-input";
 
 export default function RegisterForm() {
     const { register: refisterField, handleSubmit, formState: { errors } } = useForm<RegisterSchema>({
@@ -62,16 +63,14 @@ export default function RegisterForm() {
                             {...refisterField("last_name")} 
                             error={errors.last_name?.message} 
                         />
-                        <Input 
+                        <PasswordInput 
                             icon="lock-closed" 
-                            type="password" 
                             placeholder="Buat password" 
                             {...refisterField("password")} 
                             error={errors.password?.message} 
                         />
-                        <Input 
+                        <PasswordInput 
                             icon="lock-closed" 
-                            type="password" 
                             placeholder="Konfirmasi password" 
                             {...refisterField("confirm_password")} 
                             error={errors.confirm_password?.message} 
